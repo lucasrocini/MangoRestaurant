@@ -111,6 +111,7 @@ namespace Mango.Services.ProductAPI
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
