@@ -13,7 +13,7 @@ namespace Mango.Services.ShoppingCartAPI.Models
         [ForeignKey("CartHeaderId")]
         public virtual CartHeader CartHeader { get; set; }
         public int ProductId { get; set; }
-        [ForeignKey("ProuctId")]
+        [ForeignKey("ProductId")]
         public virtual Product Product { get; set; }
         public int Count { get; set; }
 

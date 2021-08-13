@@ -52,6 +52,7 @@ namespace Mango.Services.ShoppingCartAPI.Repository
             //check if header is null
             var cartHeaderFromDb = await _db.CartHeaders.AsNoTracking()
                 .FirstOrDefaultAsync(u => u.UserId == cart.CartHeader.UserId);
+
             if(cartHeaderFromDb == null)
             {
                 //create header and details
@@ -84,7 +85,7 @@ namespace Mango.Services.ShoppingCartAPI.Repository
                     cart.CartDetails.FirstOrDefault().Product = null;
                     cart.CartDetails.FirstOrDefault().Count += cartDetailsFromDb.Count;
                     _db.CartDetails.Update(cart.CartDetails.FirstOrDefault());
-                    _db.SaveChangesAsync();
+                    await _db.SaveChangesAsync();
                 }
 
             }
@@ -132,7 +133,7 @@ namespace Mango.Services.ShoppingCartAPI.Repository
             catch(Exception e)
             {
                 return false;
-                Console.
+                
             }
         }
     }

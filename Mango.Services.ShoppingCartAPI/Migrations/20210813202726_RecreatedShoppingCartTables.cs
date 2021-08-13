@@ -2,7 +2,7 @@
 
 namespace Mango.Services.ShoppingCartAPI.Migrations
 {
-    public partial class AddProductAndCartModels : Migration
+    public partial class RecreatedShoppingCartTables : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -44,7 +44,6 @@ namespace Mango.Services.ShoppingCartAPI.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CartHeaderId = table.Column<int>(type: "int", nullable: false),
                     ProductId = table.Column<int>(type: "int", nullable: false),
-                    ProuctId = table.Column<int>(type: "int", nullable: true),
                     Count = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -57,11 +56,11 @@ namespace Mango.Services.ShoppingCartAPI.Migrations
                         principalColumn: "CartHeaderId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_CartDetails_Products_ProuctId",
-                        column: x => x.ProuctId,
+                        name: "FK_CartDetails_Products_ProductId",
+                        column: x => x.ProductId,
                         principalTable: "Products",
                         principalColumn: "ProductId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -70,9 +69,9 @@ namespace Mango.Services.ShoppingCartAPI.Migrations
                 column: "CartHeaderId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CartDetails_ProuctId",
+                name: "IX_CartDetails_ProductId",
                 table: "CartDetails",
-                column: "ProuctId");
+                column: "ProductId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
