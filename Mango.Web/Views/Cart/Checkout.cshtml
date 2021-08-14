@@ -91,7 +91,9 @@
                                     <div class="col-3" style="font-size:11px;">
                                         <span style="font-size:17px;"> @cartObj.Count</span>
                                     </div>
-                                </div><hr /><div class="row">
+                                </div>
+                            }
+                            <hr /><div class="row">
                                     <div class="col-12 text-right pr-4 text-danger">
                                         Order Total : @string.Format("{0:c}", Model.CartHeader.OrderTotal)   <br />
                                         @if (Model.CartHeader.DiscountTotal > 0)
@@ -100,7 +102,7 @@
                                         }
                                     </div>
                                 </div>
-                            }
+                            
 
                         </div>
                         <div class="card-footer">
