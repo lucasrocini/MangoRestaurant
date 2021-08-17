@@ -41,7 +41,7 @@ namespace Mango.Services.OrderAPI
             //services.AddSingleton(mapper);
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-            //services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
 
             var optionBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
             optionBuilder.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));

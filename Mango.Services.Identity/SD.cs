@@ -23,7 +23,7 @@ namespace Mango.Services.Identity
             public static IEnumerable<ApiScope> ApiScopes =>
                 new List<ApiScope> 
                 { 
-                    new ApiScope("mango", "Magno Server"), //admin
+                    new ApiScope("mango", "Mango Server"), //admin
                     new ApiScope(name: "read", displayName: "Read your data"),
                     new ApiScope(name: "write", displayName: "rite your data"),
                     new ApiScope(name: "delete", displayName: "Delete your data")
